@@ -1,0 +1,40 @@
+<!-- templates/display_image.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Image</title>
+  </head>
+  <body>
+    <div>
+      <h2>Original Image</h2>
+      <img
+        src="{{ url_for('download_image', image_hash=image.image_hash) }}"
+        alt="Uploaded Image"
+        style="max-width: 100%"
+      />
+    </div>
+    <div>
+      <h2>Thumbnail</h2>
+      <img
+        src="{{ url_for('download_thumbnail', image_hash=image.image_hash) }}"
+        alt="Thumbnail"
+        style="max-width: 100%"
+      />
+    </div>
+    <div>
+      <h3>Metadata</h3>
+      <p>Hash: {{ image.image_hash }}</p>
+      <p>Name: {{ image.image_name }}</p>
+      <p>Date Added: {{ image.date_added }}</p>
+      <p>Dimensions: {{ image.dimensions }}</p>
+      <p>File Size: {{ image.file_size }} bytes</p>
+      <p>Model Hash: {{ image.model_hash }}</p>
+      <p>Lora Hash: {{ image.lora_hash }}</p>
+      <p>Number of Steps: {{ image.number_of_steps }}</p>
+      <p>Sampler: {{ image.sampler }}</p>
+      <p>CFG Value: {{ image.cfg_value }}</p>
+      <p>Version: {{ image.version }}</p>
+    </div>
+  </body>
+</html>
